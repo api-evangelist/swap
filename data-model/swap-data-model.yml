@@ -1,0 +1,88 @@
+generated: '2026-07-21'
+method: derived
+source: https://docs.api-swap-os.com/overview/core-concepts/
+note: >-
+  Derived from Swap's Core Concepts vocabulary and the documented operation
+  surface (llms.txt + API reference). No downloadable OpenAPI spec was available,
+  so entity fields/id-prefixes are not asserted beyond what the docs state.
+entities:
+  - name: Store
+    aka: [brand, merchant]
+    detail: Root scope for every request; identified by store / swap_store_id / store_id / x-store-id.
+  - name: Product
+    surface: Agentic Storefront
+  - name: Collection
+    surface: Agentic Storefront
+  - name: Cart
+    surface: Agentic Storefront
+  - name: CheckoutSession
+    surface: Agentic Storefront
+  - name: Order
+    surface: [Agentic Storefront, Global, Protect]
+  - name: Shipment
+    surface: [Agentic Storefront, Shipping]
+  - name: Return
+    surface: Returns
+  - name: Claim
+    surface: Protect
+  - name: Conversation
+    surface: Agentic Storefront
+  - name: UserProfile
+    surface: Agentic Storefront
+  - name: DataManagementJob
+    aka: [export job]
+    surface: Agentic Storefront
+  - name: Calculation
+    aka: [TLC transaction, landed-cost calculation]
+    surface: [Global, TLC]
+  - name: Classification
+    aka: [HS code]
+    surface: [Global, TLC]
+  - name: ShipmentIntent
+    surface: Shipping
+    detail: Input describing what to ship and where; normalized into customs-compliant declared values.
+  - name: CompliancePack
+    surface: Shipping
+    detail: Enriched declared values, HS codes, and commercial-invoice fields returned for a ShipmentIntent.
+  - name: Invoice
+    surface: Shipping
+relationships:
+  - from: Store
+    type: has_many
+    to: Product
+  - from: Store
+    type: has_many
+    to: Order
+  - from: Collection
+    type: has_many
+    to: Product
+    via: collectionId
+  - from: Cart
+    type: belongs_to
+    to: Store
+  - from: CheckoutSession
+    type: belongs_to
+    to: Cart
+  - from: Order
+    type: has_many
+    to: Shipment
+  - from: Order
+    type: belongs_to
+    to: Calculation
+    via: calculationId
+    detail: Global order completion links the platform order to a prior /checkout/calculate result (items must match).
+  - from: Claim
+    type: belongs_to
+    to: Order
+    surface: Protect
+  - from: Return
+    type: belongs_to
+    to: Order
+    via: order_id
+  - from: DataManagementJob
+    type: belongs_to
+    to: UserProfile
+  - from: CompliancePack
+    type: belongs_to
+    to: ShipmentIntent
+render: null

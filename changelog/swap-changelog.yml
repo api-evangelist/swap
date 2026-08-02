@@ -1,0 +1,62 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.api-swap-os.com/products/tlc/release-notes/
+scope: TLC API
+scheme: semver-ish (0.0.x build numbers)
+current: 0.0.943
+note: >-
+  Swap publishes dated release notes for the TLC API. Other surfaces (Global,
+  Returns, Shipping, Agentic Storefront) expose a per-product document-history /
+  release-notes page rather than a single unified changelog.
+entries:
+  - version: 0.0.943
+    date: '2026-06-05'
+    highlights:
+      - Internal classification reliability improved; classifier strategy is now configurable.
+      - Fee calculation updated.
+  - version: 0.0.927
+    date: '2026-05-11'
+    additions:
+      - Fee and tax breakdowns now included in API and carrier responses.
+  - version: 0.0.919
+    date: '2026-05-06'
+    highlights:
+      - Shipping restrictions for taxidermy goods removed.
+  - version: 0.0.913
+    date: '2026-04-28'
+    additions:
+      - HS codes and a tax-and-duties breakdown now returned in shipping responses.
+      - Export filtering improved with destination country and currency filters.
+  - version: 0.0.901
+    date: '2026-04-01'
+    additions:
+      - External reference ID support added to the shipping endpoint.
+      - HS-code classification responses now include human-readable descriptions.
+    highlights:
+      - API documentation now updates automatically on each release.
+  - version: 0.0.876
+    date: '2026-03-02'
+    highlights:
+      - HS-code classification reliability improved by switching to the classification gateway.
+      - Status page updated to cover new services.
+  - version: 0.0.833
+    date: '2026-02-16'
+    highlights:
+      - Classification cache duration increased to improve response times.
+  - version: 0.0.827
+    date: '2026-02-13'
+    highlights:
+      - OpenAPI documentation is now publicly available.
+    fixes:
+      - Several export calculation and display issues resolved.
+  - version: 0.0.778
+    date: '2026-01-14'
+    additions:
+      - New dedicated classification endpoint added.
+      - Address validation now supports updatedAt filtering.
+    fixes:
+      - Content-type handling bug and an address-validation bug fixed.
+  - version: 0.0.721
+    date: '2025-12-16'
+    highlights:
+      - Exports include clearer ownership info and a corrected low-value threshold calculation.

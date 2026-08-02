@@ -1,0 +1,35 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.api-swap-os.com/quickstart/environments/
+docs:
+  - https://docs.api-swap-os.com/quickstart/environments/
+  - https://docs.api-swap-os.com/products/tlc/environments-and-auth/
+  - https://docs.api-swap-os.com/products/shipping/environments-and-auth/
+model: >-
+  Swap separates sandbox and production per surface, each with its own base URL
+  and its own API key. Credentials are scoped two ways: per-API (a Global key
+  cannot call Returns) and per-environment (a sandbox key does not work in
+  production). A store on Global + Returns in both sandbox and production
+  therefore manages four distinct keys.
+key_separation:
+  header: x-api-key / X-API-Key
+  rule: Sandbox keys are separate from production keys and are not interchangeable.
+  issuance: Keys are issued by Swap during onboarding.
+sandbox_hosts:
+  agentic_storefront_dev: https://dev-ws-gateway.api-swap-os.com
+  agentic_storefront_uat: https://uat-ws-gateway.api-swap-os.com
+  shipping: https://sandbox-apigw.swap-os.com/shipping/v1/public
+  tlc: https://sandbox-tlc.api-swap-os.com/tax-duty/v1
+sandbox_gaps:
+  - surface: Global
+    detail: >-
+      No dedicated sandbox hostname today; integration testing uses a separate
+      sandbox dashboard account and API key against the production Global host.
+  - surface: Protect
+    detail: Sandbox hostnames are issued during onboarding when applicable.
+test_values:
+  published: false
+  note: >-
+    Swap does not publish fixed magic test identifiers or test card/bank numbers
+    in the public docs; sandbox testing uses onboarding-issued credentials and a
+    sandbox dashboard account. No test values are fabricated here.

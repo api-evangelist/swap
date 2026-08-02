@@ -1,0 +1,816 @@
+# Swap
+
+> API reference and integration guides for the Swap commerce platform — cross-border calculation, shipping and customs, returns, package protection, and the Agentic Storefront.
+
+- [Swap Developer Documentation](/index.md)
+
+## markdown-page
+
+You don't need React to write simple standalone pages.
+
+- [Markdown page example](/markdown-page.md): You don't need React to write simple standalone pages.
+
+## search
+
+- [Search the documentation](/search.md)
+
+## overview
+
+
+### architecture
+
+How Swap is structured as a platform — shared foundations, product surfaces, and the integration patterns each surface uses.
+
+- [Architecture Overview](/overview/architecture.md): How Swap is structured as a platform — shared foundations, product surfaces, and the integration patterns each surface uses.
+
+### core-concepts
+
+Vocabulary used across Swap APIs — platform-wide, cross-border, shipping, agentic storefront, returns, and protect.
+
+- [Core Concepts](/overview/core-concepts.md): Vocabulary used across Swap APIs — platform-wide, cross-border, shipping, agentic storefront, returns, and protect.
+
+### what-is-swap
+
+Where Swap fits in the commerce lifecycle — discovery, checkout, shipping, and post-purchase — and what each Swap product is responsible for.
+
+- [What is Swap?](/overview/what-is-swap.md): Where Swap fits in the commerce lifecycle — discovery, checkout, shipping, and post-purchase — and what each Swap product is responsible for.
+
+## products
+
+
+### agentic-storefront
+
+Integration guides for Agentic Storefront via the Gateway API.
+
+- [⚡️ Agentic Storefront](/products/agentic-storefront.md): Integration guides for Agentic Storefront via the Gateway API.
+
+#### agentic-storefront-reference
+
+Gateway OpenAPI operations, Wire Worker context, and deep links into generated endpoint pages.
+
+- [🔎 Agentic Storefront API reference](/products/agentic-storefront/agentic-storefront-reference.md): Gateway OpenAPI operations, Wire Worker context, and deep links into generated endpoint pages.
+
+##### carts-controller-get-cart-v-1
+
+Get the active cart for a specific user and store. If no cart exists, an empty cart is returned.
+
+- [Get active cart](/products/agentic-storefront/agentic-storefront-reference/carts-controller-get-cart-v-1.md): Get the active cart for a specific user and store. If no cart exists, an empty cart is returned.
+
+##### carts-controller-update-item-v-1
+
+Update the quantity of a product item in the cart.
+
+- [Update product item quantity in cart](/products/agentic-storefront/agentic-storefront-reference/carts-controller-update-item-v-1.md): Update the quantity of a product item in the cart.
+
+##### carts-controller-validate-cart-v-1
+
+Validates cart items against Shopify and updates prices, availability, and quantities. Returns previous and current cart state for comparison.
+
+- [Validate and refresh cart](/products/agentic-storefront/agentic-storefront-reference/carts-controller-validate-cart-v-1.md): Validates cart items against Shopify and updates prices, availability, and quantities. Returns previous and current cart state for comparison.
+
+##### chat-controller-get-chat-messages-v-1
+
+Load messages for one assistant chat
+
+- [Load messages for one assistant chat](/products/agentic-storefront/agentic-storefront-reference/chat-controller-get-chat-messages-v-1.md): Load messages for one assistant chat
+
+##### checkouts-controller-apply-discount-code-v-1
+
+      Applies a discount code to a checkout session.
+
+- [Apply discount code to checkout session](/products/agentic-storefront/agentic-storefront-reference/checkouts-controller-apply-discount-code-v-1.md):       Applies a discount code to a checkout session.
+
+##### checkouts-controller-create-checkout-session-v-1
+
+      Creates a checkout session for a specified store and user.
+
+- [Initiate a checkout session](/products/agentic-storefront/agentic-storefront-reference/checkouts-controller-create-checkout-session-v-1.md):       Creates a checkout session for a specified store and user.
+
+##### checkouts-controller-get-checkout-session-v-1
+
+      Retrieves a checkout session for a specified user and store.
+
+- [Get a checkout session](/products/agentic-storefront/agentic-storefront-reference/checkouts-controller-get-checkout-session-v-1.md):       Retrieves a checkout session for a specified user and store.
+
+##### checkouts-controller-provide-payment-details-v-1
+
+Used to provide necessary details for the payment of a transaction
+
+- [Used to provide necessary details for the payment of a transaction](/products/agentic-storefront/agentic-storefront-reference/checkouts-controller-provide-payment-details-v-1.md): Used to provide necessary details for the payment of a transaction
+
+##### checkouts-controller-remove-discount-code-v-1
+
+      Removes the discount code from a checkout session.
+
+- [Remove discount code from checkout session](/products/agentic-storefront/agentic-storefront-reference/checkouts-controller-remove-discount-code-v-1.md):       Removes the discount code from a checkout session.
+
+##### checkouts-controller-start-payment-transaction-v-1
+
+      Initiates a payment transaction for a checkout session.
+
+- [Start a payment transaction](/products/agentic-storefront/agentic-storefront-reference/checkouts-controller-start-payment-transaction-v-1.md):       Initiates a payment transaction for a checkout session.
+
+##### checkouts-controller-terminate-checkout-session-v-1
+
+      Terminates a checkout session for a specified user and store.
+
+- [Terminate a checkout session](/products/agentic-storefront/agentic-storefront-reference/checkouts-controller-terminate-checkout-session-v-1.md):       Terminates a checkout session for a specified user and store.
+
+##### checkouts-controller-update-checkout-session-address-v-1
+
+      Updates the shipping address for an express checkout session.
+
+- [Update checkout session shipping address](/products/agentic-storefront/agentic-storefront-reference/checkouts-controller-update-checkout-session-address-v-1.md):       Updates the shipping address for an express checkout session.
+
+##### checkouts-controller-update-checkout-session-customer-email-v-1
+
+      Updates the customer email for a checkout session.
+
+- [Update checkout session customer email](/products/agentic-storefront/agentic-storefront-reference/checkouts-controller-update-checkout-session-customer-email-v-1.md):       Updates the customer email for a checkout session.
+
+##### checkouts-controller-update-checkout-session-shipping-rate-v-1
+
+      Updates the shipping rate for a checkout session.
+
+- [Update checkout session shipping rate](/products/agentic-storefront/agentic-storefront-reference/checkouts-controller-update-checkout-session-shipping-rate-v-1.md):       Updates the shipping rate for a checkout session.
+
+##### checkouts-controller-validate-shipping-address-v-1
+
+      Validates a shipping address without updating a checkout session.
+
+- [Validate a shipping address](/products/agentic-storefront/agentic-storefront-reference/checkouts-controller-validate-shipping-address-v-1.md):       Validates a shipping address without updating a checkout session.
+
+##### conversations-controller-get-conversations-v-1
+
+List assistant conversations for the shopper
+
+- [List assistant conversations for the shopper](/products/agentic-storefront/agentic-storefront-reference/conversations-controller-get-conversations-v-1.md): List assistant conversations for the shopper
+
+##### data-management-api-controller-get-export-download-url-v-1
+
+Returns a pre-signed download URL for a completed export job. Returns 400 if job is not completed; 503 if the link expired and cannot be regenerated.
+
+- [Get export download URL](/products/agentic-storefront/agentic-storefront-reference/data-management-api-controller-get-export-download-url-v-1.md): Returns a pre-signed download URL for a completed export job. Returns 400 if job is not completed; 503 if the link expired and cannot be regenerated.
+
+##### data-management-api-controller-get-job-by-id-v-1
+
+Returns details of a single data management job by id for the authenticated user. Returns 404 if not found or not owned by the user.
+
+- [Get data management job details](/products/agentic-storefront/agentic-storefront-reference/data-management-api-controller-get-job-by-id-v-1.md): Returns details of a single data management job by id for the authenticated user. Returns 404 if not found or not owned by the user.
+
+##### data-management-api-controller-get-pending-jobs-v-1
+
+Returns a list of pending or in progress data management jobs for the authenticated user.
+
+- [Get pending data management jobs](/products/agentic-storefront/agentic-storefront-reference/data-management-api-controller-get-pending-jobs-v-1.md): Returns a list of pending or in progress data management jobs for the authenticated user.
+
+##### data-management-api-controller-list-jobs-v-1
+
+Returns a paginated list of data management jobs for the authenticated user.
+
+- [List user data management jobs](/products/agentic-storefront/agentic-storefront-reference/data-management-api-controller-list-jobs-v-1.md): Returns a paginated list of data management jobs for the authenticated user.
+
+##### data-management-api-controller-request-export-v-1
+
+Creates an export job for the authenticated user's data. Returns job id and status (requires authenticated user).
+
+- [Request user data export](/products/agentic-storefront/agentic-storefront-reference/data-management-api-controller-request-export-v-1.md): Creates an export job for the authenticated user's data. Returns job id and status (requires authenticated user).
+
+##### layercode-controller-handle-webhook-message-v-1
+
+Hosted agent runtime webhook (stream or callback ingress)
+
+- [Hosted agent runtime webhook (stream or callback ingress)](/products/agentic-storefront/agentic-storefront-reference/layercode-controller-handle-webhook-message-v-1.md): Hosted agent runtime webhook (stream or callback ingress)
+
+##### nickname-judge-controller-validate-nickname-v-1
+
+Check whether a nickname is allowed before saving
+
+- [Check whether a nickname is allowed before saving](/products/agentic-storefront/agentic-storefront-reference/nickname-judge-controller-validate-nickname-v-1.md): Check whether a nickname is allowed before saving
+
+##### orders-controller-get-order-v-1
+
+Get an order with full details by ID for a user in a specific store
+
+- [Get an order with full details](/products/agentic-storefront/agentic-storefront-reference/orders-controller-get-order-v-1.md): Get an order with full details by ID for a user in a specific store
+
+##### orders-controller-list-orders-v-1
+
+List orders for a user in a specific store with pagination and optional status filtering
+
+- [List orders for a user in a specific store](/products/agentic-storefront/agentic-storefront-reference/orders-controller-list-orders-v-1.md): List orders for a user in a specific store with pagination and optional status filtering
+
+##### product-controller-get-product-by-id-v-1
+
+Fetches a product by its ID
+
+- [Get a product by ID](/products/agentic-storefront/agentic-storefront-reference/product-controller-get-product-by-id-v-1.md): Fetches a product by its ID
+
+##### products-controller-get-products-by-ids-v-1
+
+Load several products in one request
+
+- [Load several products in one request](/products/agentic-storefront/agentic-storefront-reference/products-controller-get-products-by-ids-v-1.md): Load several products in one request
+
+##### shipment-controller-get-shipments-v-1
+
+Get shipments filtered by platform order identifier or tracking number, enriched with tracking events and carrier when available
+
+- [Get shipments](/products/agentic-storefront/agentic-storefront-reference/shipment-controller-get-shipments-v-1.md): Get shipments filtered by platform order identifier or tracking number, enriched with tracking events and carrier when available
+
+##### size-category-controller-get-size-categories-v-1
+
+Size categories for catalog sizing UX
+
+- [Size categories for catalog sizing UX](/products/agentic-storefront/agentic-storefront-reference/size-category-controller-get-size-categories-v-1.md): Size categories for catalog sizing UX
+
+##### stores-controller-get-collections-v-1
+
+List storefront collections for a store
+
+- [List storefront collections for a store](/products/agentic-storefront/agentic-storefront-reference/stores-controller-get-collections-v-1.md): List storefront collections for a store
+
+##### stores-controller-get-current-store-v-1
+
+Resolve the active store from the request host
+
+- [Resolve the active store from the request host](/products/agentic-storefront/agentic-storefront-reference/stores-controller-get-current-store-v-1.md): Resolve the active store from the request host
+
+##### stores-controller-get-products-by-collection-id-v-1
+
+List products inside a collection
+
+- [List products inside a collection](/products/agentic-storefront/agentic-storefront-reference/stores-controller-get-products-by-collection-id-v-1.md): List products inside a collection
+
+##### stores-controller-get-store-by-agentic-storefront-subdomain-v-1
+
+Resolve store by agentic storefront subdomain
+
+- [Resolve store by agentic storefront subdomain](/products/agentic-storefront/agentic-storefront-reference/stores-controller-get-store-by-agentic-storefront-subdomain-v-1.md): Resolve store by agentic storefront subdomain
+
+##### stores-controller-get-store-by-swap-id-v-1
+
+Look up store details by Swap ID
+
+- [Look up store details by Swap ID](/products/agentic-storefront/agentic-storefront-reference/stores-controller-get-store-by-swap-id-v-1.md): Look up store details by Swap ID
+
+##### tracking-consent-api-controller-get-tracking-consent-v-1
+
+Gets the current tracking consent state for the user + store. Returns defaults (hasConsented: false, all preferences false) if no consent decision has been recorded.
+
+- [Get user tracking consent](/products/agentic-storefront/agentic-storefront-reference/tracking-consent-api-controller-get-tracking-consent-v-1.md): Gets the current tracking consent state for the user + store. Returns defaults (hasConsented: false, all preferences false) if no consent decision has been recorded.
+
+##### tracking-consent-api-controller-set-tracking-consent-v-1
+
+Sets the user tracking consent for the current store (requires authenticated user)
+
+- [Set user tracking consent](/products/agentic-storefront/agentic-storefront-reference/tracking-consent-api-controller-set-tracking-consent-v-1.md): Sets the user tracking consent for the current store (requires authenticated user)
+
+##### user-profile-settings-details-api-controller-delete-nickname-v-1
+
+Deletes the user nickname (requires authenticated user)
+
+- [Delete user nickname](/products/agentic-storefront/agentic-storefront-reference/user-profile-settings-details-api-controller-delete-nickname-v-1.md): Deletes the user nickname (requires authenticated user)
+
+##### user-profile-settings-details-api-controller-delete-saved-address-v-1
+
+Removes the saved address from the user profile
+
+- [Delete saved address](/products/agentic-storefront/agentic-storefront-reference/user-profile-settings-details-api-controller-delete-saved-address-v-1.md): Removes the saved address from the user profile
+
+##### user-profile-settings-details-api-controller-get-profile-settings-v-1
+
+Gets the user profile settings or null if not found (requires authenticated user)
+
+- [Get user profile settings](/products/agentic-storefront/agentic-storefront-reference/user-profile-settings-details-api-controller-get-profile-settings-v-1.md): Gets the user profile settings or null if not found (requires authenticated user)
+
+##### user-profile-settings-details-api-controller-get-saved-addresses-v-1
+
+Retrieves the saved addresses from the user profile
+
+- [Get saved addresses](/products/agentic-storefront/agentic-storefront-reference/user-profile-settings-details-api-controller-get-saved-addresses-v-1.md): Retrieves the saved addresses from the user profile
+
+##### user-profile-settings-details-api-controller-set-nickname-v-1
+
+Sets the user nickname (requires authenticated user)
+
+- [Set user nickname](/products/agentic-storefront/agentic-storefront-reference/user-profile-settings-details-api-controller-set-nickname-v-1.md): Sets the user nickname (requires authenticated user)
+
+##### user-profile-settings-details-api-controller-set-saved-address-v-1
+
+Sets the saved address for the user (replaces existing if present)
+
+- [Set or replace saved address](/products/agentic-storefront/agentic-storefront-reference/user-profile-settings-details-api-controller-set-saved-address-v-1.md): Sets the saved address for the user (replaces existing if present)
+
+##### user-profile-settings-details-api-controller-toggle-memory-control-v-1
+
+Toggles AI memory control enabled/disabled (requires authenticated user)
+
+- [Toggle memory control](/products/agentic-storefront/agentic-storefront-reference/user-profile-settings-details-api-controller-toggle-memory-control-v-1.md): Toggles AI memory control enabled/disabled (requires authenticated user)
+
+##### vto-events-controller-stream-vto-job-events-v-1
+
+Stream virtual try-on job updates (SSE)
+
+- [Stream virtual try-on job updates (SSE)](/products/agentic-storefront/agentic-storefront-reference/vto-events-controller-stream-vto-job-events-v-1.md): Stream virtual try-on job updates (SSE)
+
+##### wire-controller-authorize-session-v-1
+
+Start or refresh a realtime assistant session
+
+- [Start or refresh a realtime assistant session](/products/agentic-storefront/agentic-storefront-reference/wire-controller-authorize-session-v-1.md): Start or refresh a realtime assistant session
+
+#### flows
+
+End-to-end integration journeys for Agentic Storefront.
+
+- [🔄 Flows](/products/agentic-storefront/flows.md): End-to-end integration journeys for Agentic Storefront.
+
+##### catalog-browse-and-search
+
+Store context, collections, products, search, and pre-ingestion routes.
+
+- [🛍️ Catalog Browse and Search](/products/agentic-storefront/flows/catalog-browse-and-search.md): Store context, collections, products, search, and pre-ingestion routes.
+
+##### checkout-flow
+
+Cart through payment, orders, shipments, and session termination.
+
+- [💳 Checkout Flow (end-to-end)](/products/agentic-storefront/flows/checkout-flow.md): Cart through payment, orders, shipments, and session termination.
+
+##### conversation-history
+
+List conversations and load paginated messages for a chat.
+
+- [🗂️ Conversation History](/products/agentic-storefront/flows/conversation-history.md): List conversations and load paginated messages for a chat.
+
+##### conversation-session-and-realtime
+
+Session authorize on the Gateway and Wire Worker WebSocket streaming.
+
+- [💬 Conversation Session and Realtime](/products/agentic-storefront/flows/conversation-session-and-realtime.md): Session authorize on the Gateway and Wire Worker WebSocket streaming.
+
+##### discovery-session
+
+Real-time discovery cards and session-scoped feed behavior.
+
+- [🧭 Discovery Session (real-time feed)](/products/agentic-storefront/flows/discovery-session.md): Real-time discovery cards and session-scoped feed behavior.
+
+##### orders-and-shipments
+
+Order list, detail, and shipment tracking after purchase.
+
+- [📦 Orders and Shipments](/products/agentic-storefront/flows/orders-and-shipments.md): Order list, detail, and shipment tracking after purchase.
+
+##### personal-data-export
+
+Request a personal data export, poll job status, and download.
+
+- [🧾Personal Data Export](/products/agentic-storefront/flows/personal-data-export.md): Request a personal data export, poll job status, and download.
+
+##### profile-settings-and-checkout
+
+Per-store profile settings, saved addresses, and how they relate to checkout (see Checkout flow for session details).
+
+- [👤 Profile settings and Checkout](/products/agentic-storefront/flows/profile-settings-and-checkout.md): Per-store profile settings, saved addresses, and how they relate to checkout (see Checkout flow for session details).
+
+#### getting-started
+
+Environments, errors, authentication, and the Agentic Storefront API reference index.
+
+- [🧭 Getting Started](/products/agentic-storefront/getting-started.md): Environments, errors, authentication, and the Agentic Storefront API reference index.
+
+##### authentication
+
+Headers, tokens, Wire Worker, and payment callbacks.
+
+- [🔐 Authentication and Identity](/products/agentic-storefront/getting-started/authentication.md): Headers, tokens, Wire Worker, and payment callbacks.
+
+##### document-history
+
+Agentic Storefront documentation revision history, with dates and short summaries of updates.
+
+- [📝 Document history](/products/agentic-storefront/getting-started/document-history.md): Agentic Storefront documentation revision history, with dates and short summaries of updates.
+
+##### environments-and-base-urls
+
+Gateway hosts, API reference, rate limits, and realtime paths.
+
+- [🌍 Environments and Base URLs](/products/agentic-storefront/getting-started/environments-and-base-urls.md): Gateway hosts, API reference, rate limits, and realtime paths.
+
+##### error-codes-and-handling
+
+HTTP error statuses, typical JSON error bodies, and how to use the API reference.
+
+- [⚠️ Error codes and handling](/products/agentic-storefront/getting-started/error-codes-and-handling.md): HTTP error statuses, typical JSON error bodies, and how to use the API reference.
+
+##### introduction
+
+Big picture for Agentic Storefront integrations and the context table.
+
+- [🧩 Introduction](/products/agentic-storefront/getting-started/introduction.md): Big picture for Agentic Storefront integrations and the context table.
+
+### choosing-an-api
+
+Decision guide for picking the right Swap API — Shipping, TLC, or Global.
+
+- [Choosing the right Swap API](/products/choosing-an-api.md): Decision guide for picking the right Swap API — Shipping, TLC, or Global.
+
+### global
+
+Integration guide for Swap Global via the public Global API.
+
+- [🌐 Global](/products/global.md): Integration guide for Swap Global via the public Global API.
+
+#### authentication
+
+Authenticate to the Global API with your store-scoped API key.
+
+- [Authentication](/products/global/authentication.md): Authenticate to the Global API with your store-scoped API key.
+
+#### checkout-flow
+
+Classify, optional shipping rates, calculate, and complete a Global checkout.
+
+- [Checkout Flow](/products/global/checkout-flow.md): Classify, optional shipping rates, calculate, and complete a Global checkout.
+
+#### environments
+
+Global API hostnames, the /public/v1 path prefix, and how to test integrations.
+
+- [Environments](/products/global/environments.md): Global API hostnames, the /public/v1 path prefix, and how to test integrations.
+
+#### errors-and-handling
+
+HTTP statuses and validation behavior on the Global API checkout flow.
+
+- [Error Codes and Handling](/products/global/errors-and-handling.md): HTTP statuses and validation behavior on the Global API checkout flow.
+
+#### global-reference
+
+OpenAPI operations for the Global API, with deep links into generated endpoint pages.
+
+- [🔎 Global API Reference](/products/global/global-reference.md): OpenAPI operations for the Global API, with deep links into generated endpoint pages.
+
+##### checkout-controller-calculate
+
+Calculates taxes and duties for a checkout.
+
+- [POST /checkout/calculate](/products/global/global-reference/checkout-controller-calculate.md): Calculates taxes and duties for a checkout.
+
+##### checkout-controller-classify
+
+Classifies your products into HS codes for customs and compliance.
+
+- [POST /checkout/classify](/products/global/global-reference/checkout-controller-classify.md): Classifies your products into HS codes for customs and compliance.
+
+##### orders-controller-create
+
+Notifies Swap that an order has been placed.
+
+- [POST /orders](/products/global/global-reference/orders-controller-create.md): Notifies Swap that an order has been placed.
+
+##### shipping-public-controller-calculate-rates
+
+Returns shipping rates for the current cart.
+
+- [POST /shipping/rates](/products/global/global-reference/shipping-public-controller-calculate-rates.md): Returns shipping rates for the current cart.
+
+#### global-vs-tlc-and-shipping
+
+Choose the Global API, TLC API, or Shipping API for your integration.
+
+- [Global vs TLC and Shipping](/products/global/global-vs-tlc-and-shipping.md): Choose the Global API, TLC API, or Shipping API for your integration.
+
+#### introduction
+
+Introduction to Global API
+
+- [Introduction](/products/global/introduction.md): Introduction to Global API
+
+#### native-integration-vs-custom
+
+When Swap Global runs through a native integration and when to use the public Global API.
+
+- [Native Integration vs. Custom Checkout](/products/global/native-integration-vs-custom.md): When Swap Global runs through a native integration and when to use the public Global API.
+
+### protect
+
+Protect is Swap’s package and shipping protection product for ecommerce shipments.
+
+- [Protect API](/products/protect.md): Protect is Swap’s package and shipping protection product for ecommerce shipments.
+
+#### protect-flow-lifecycle
+
+This page explains the business lifecycle from order protection to claim outcomes.
+
+- [Protect Flow and Lifecycle](/products/protect/protect-flow-lifecycle.md): This page explains the business lifecycle from order protection to claim outcomes.
+
+#### protect-integration-models
+
+Protect supports different integration patterns for operational updates.
+
+- [Integration Models](/products/protect/protect-integration-models.md): Protect supports different integration patterns for operational updates.
+
+#### protect-reference
+
+
+##### create-order
+
+Validate and enqueue a new order for processing. Provider/store/origin compatibility is enforced from the API key context.
+
+- [Create Order](/products/protect/protect-reference/create-order.md): Validate and enqueue a new order for processing. Provider/store/origin compatibility is enforced from the API key context.
+
+##### get-claim-by-id
+
+Retrieve a claim scoped to the provider inferred from the API key.
+
+- [Get Claim By ID](/products/protect/protect-reference/get-claim-by-id.md): Retrieve a claim scoped to the provider inferred from the API key.
+
+##### get-claim-delivery-declaration
+
+Retrieve a temporary signed URL for the claim's delivery declaration PDF. The URL expires after 15 minutes. Access is scoped to the provider inferred from the API key.
+
+- [Get Claim Delivery Declaration](/products/protect/protect-reference/get-claim-delivery-declaration.md): Retrieve a temporary signed URL for the claim's delivery declaration PDF. The URL expires after 15 minutes. Access is scoped to the provider inferred from the API key.
+
+##### get-order-by-id
+
+Retrieve an order scoped to the provider inferred from the API key.
+
+- [Get Order By ID](/products/protect/protect-reference/get-order-by-id.md): Retrieve an order scoped to the provider inferred from the API key.
+
+##### send-claim-message
+
+Validate and enqueue a claim message for downstream processing.
+
+- [Send Claim Message](/products/protect/protect-reference/send-claim-message.md): Validate and enqueue a claim message for downstream processing.
+
+##### swap-protect-api
+
+API documentation for Swap Protect (orders and claims endpoints)
+
+- [Swap Protect API](/products/protect/protect-reference/swap-protect-api.md): API documentation for Swap Protect (orders and claims endpoints)
+
+##### update-order
+
+Validate and enqueue an order update for processing. Provider/store/origin compatibility is enforced from the API key context.
+
+- [Update Order](/products/protect/protect-reference/update-order.md): Validate and enqueue an order update for processing. Provider/store/origin compatibility is enforced from the API key context.
+
+#### protect-webhooks
+
+Reference for the claim notification payload sent by Swap Protect to your webhook endpoint.
+
+- [Webhook Notifications](/products/protect/protect-webhooks.md): Reference for the claim notification payload sent by Swap Protect to your webhook endpoint.
+
+### returns
+
+Returns is Swap's returns management platform for e-commerce. Through the API, you can query return data, push quality control inspection results, and receive event notifications via webhooks and Klaviyo.
+
+- [Returns API](/products/returns.md): Returns is Swap's returns management platform for e-commerce. Through the API, you can query return data, push quality control inspection results, and receive event notifications via webhooks and Klaviyo.
+
+#### external-returns
+
+How to query return data using the Swap External Returns API (V1 and V2).
+
+- [Querying Return Data](/products/returns/external-returns.md): How to query return data using the Swap External Returns API (V1 and V2).
+
+#### klaviyo-events
+
+Reference for Klaviyo events triggered by Swap Returns lifecycle actions.
+
+- [Klaviyo Events](/products/returns/klaviyo-events.md): Reference for Klaviyo events triggered by Swap Returns lifecycle actions.
+
+#### quality-control
+
+How to push quality control inspection results to Swap via the QC API.
+
+- [Quality Control Updates](/products/returns/quality-control.md): How to push quality control inspection results to Swap via the QC API.
+
+#### returns-reference
+
+
+##### get-external-returns-v-1
+
+List returns (V1)
+
+- [List returns (V1)](/products/returns/returns-reference/get-external-returns-v-1.md): List returns (V1)
+
+##### get-external-returns-v-2
+
+List returns (V2)
+
+- [List returns (V2)](/products/returns/returns-reference/get-external-returns-v-2.md): List returns (V2)
+
+##### update-quality-control
+
+Update quality control
+
+- [Update quality control](/products/returns/returns-reference/update-quality-control.md): Update quality control
+
+#### webhooks
+
+Reference for outgoing webhook notifications sent by Swap Returns.
+
+- [Webhook Notifications](/products/returns/webhooks.md): Reference for outgoing webhook notifications sent by Swap Returns.
+
+### shipping
+
+Overview of the Swap Shipping API and how to choose between value-only and label modes.
+
+- [Shipping API — overview and decision guide](/products/shipping.md): Overview of the Swap Shipping API and how to choose between value-only and label modes.
+
+#### concepts
+
+Terminology, how the concepts map to API fields, service codes, and the roles-and-responsibilities split for the Shipping API.
+
+- [Shipping concepts](/products/shipping/concepts.md): Terminology, how the concepts map to API fields, service codes, and the roles-and-responsibilities split for the Shipping API.
+
+#### environments-and-auth
+
+Servers, API keys, the identifier set issued at onboarding, error envelopes, idempotency posture, and rate limits for the Swap Shipping API.
+
+- [Environments and authentication](/products/shipping/environments-and-auth.md): Servers, API keys, the identifier set issued at onboarding, error envelopes, idempotency posture, and rate limits for the Swap Shipping API.
+
+#### label-api
+
+Create and cancel shipping labels in label mode — Swap calls the carrier and returns the label, tracking, and commercial invoice.
+
+- [Label API — POST /label, DELETE /label/:id](/products/shipping/label-api.md): Create and cancel shipping labels in label mode — Swap calls the carrier and returns the label, tracking, and commercial invoice.
+
+#### label-updated-webhook
+
+Tracking state updates for labels created with the Shipping Label API.
+
+- [labelUpdated webhook](/products/shipping/label-updated-webhook.md): Tracking state updates for labels created with the Shipping Label API.
+
+#### shipping-reference
+
+This section documents the HTTP endpoints, request parameters, and response schemas for the Swap Shipping API.
+
+- [Shipping API reference](/products/shipping/shipping-reference.md): This section documents the HTTP endpoints, request parameters, and response schemas for the Swap Shipping API.
+
+##### cancel-a-shipping-label
+
+Cancel a shipping label.
+
+- [Cancel a shipping label](/products/shipping/shipping-reference/cancel-a-shipping-label.md): Cancel a shipping label.
+
+##### create-a-shipping-label
+
+Create a shipping label for an order.
+
+- [Create a shipping label](/products/shipping/shipping-reference/create-a-shipping-label.md): Create a shipping label for an order.
+
+##### label-updated
+
+Webhook event for tracking label updates. This is sent to your configured webhook URL.
+
+- [/label-updated](/products/shipping/shipping-reference/label-updated.md): Webhook event for tracking label updates. This is sent to your configured webhook URL.
+
+##### order-created
+
+Webhook event for newly created orders. This is sent to your configured webhook URL.
+
+- [/order-created](/products/shipping/shipping-reference/order-created.md): Webhook event for newly created orders. This is sent to your configured webhook URL.
+
+##### retrieve-invoices
+
+Get invoices
+
+- [Retrieve invoices for an order](/products/shipping/shipping-reference/retrieve-invoices.md): Get invoices
+
+#### value-only
+
+Use Swap's enriched invoice values inside your existing carrier and commercial-invoice flow.
+
+- [Value-only mode](/products/shipping/value-only.md): Use Swap's enriched invoice values inside your existing carrier and commercial-invoice flow.
+
+#### values-api
+
+Synchronous endpoint to retrieve enriched, customs-correct invoice values for an order Swap is already enriching.
+
+- [Values API reference — POST /invoices/:carrier](/products/shipping/values-api.md): Synchronous endpoint to retrieve enriched, customs-correct invoice values for an order Swap is already enriching.
+
+#### values-webhook
+
+Push delivery of enriched invoice values when Swap finishes enriching a new order.
+
+- [orderCreated webhook](/products/shipping/values-webhook.md): Push delivery of enriched invoice values when Swap finishes enriching a new order.
+
+### tlc
+
+Overview of the Swap Total-Landed-Cost API — context-bound, guaranteed duty/tax/import-fee calculation.
+
+- [TLC API — overview](/products/tlc.md): Overview of the Swap Total-Landed-Cost API — context-bound, guaranteed duty/tax/import-fee calculation.
+
+#### compute-bulk
+
+Bulk landed-cost computation — many orders in one call, or one order with multiple shipping-rate options.
+
+- [Compute landed cost in bulk](/products/tlc/compute-bulk.md): Bulk landed-cost computation — many orders in one call, or one order with multiple shipping-rate options.
+
+#### compute
+
+Compute duties, taxes, and import fees for a single cross-border shipment context.
+
+- [Compute landed cost — POST /tax-duty/v1/process](/products/tlc/compute.md): Compute duties, taxes, and import fees for a single cross-border shipment context.
+
+#### concepts-lifecycle
+
+Terminology, the TLC calculation lifecycle, the context-bound guarantee, and how the concepts map to API fields for the TLC API.
+
+- [TLC concepts & lifecycle](/products/tlc/concepts-lifecycle.md): Terminology, the TLC calculation lifecycle, the context-bound guarantee, and how the concepts map to API fields for the TLC API.
+
+#### environments-and-auth
+
+Servers, API keys, error envelope, idempotency, and rate limits for the Swap TLC API.
+
+- [Environments and authentication — TLC](/products/tlc/environments-and-auth.md): Servers, API keys, error envelope, idempotency, and rate limits for the Swap TLC API.
+
+#### hs-code
+
+Classify items into Harmonized System (HS) codes before computing TLC.
+
+- [HS code classification — POST /tax-duty/v1/classification/hs-code](/products/tlc/hs-code.md): Classify items into Harmonized System (HS) codes before computing TLC.
+
+#### release-notes
+
+Latest release notes for the TLC API
+
+- [TLC API — Release Notes](/products/tlc/release-notes.md): Latest release notes for the TLC API
+
+#### tlc-reference
+
+This section documents the HTTP endpoints, request parameters, and response schemas for the TLC API.
+
+- [TLC API reference](/products/tlc/tlc-reference.md): This section documents the HTTP endpoints, request parameters, and response schemas for the TLC API.
+
+##### tlc-controller-create-bulk-transaction
+
+Takes in shipment details including origin address, destination address, currency code, and line items with their quantities, prices, and HS codes. Returns a comprehensive breakdown of taxes, duties, disbursement fees, and discounted fees for each line item, along with total amounts.This endpoint is designed for bulk processing of multiple shipments at once.
+
+- [Compute TLC for multiples cross-border shipments in bulk](/products/tlc/tlc-reference/tlc-controller-create-bulk-transaction.md): Takes in shipment details including origin address, destination address, currency code, and line items with their quantities, prices, and HS codes. Returns a comprehensive breakdown of taxes, duties, disbursement fees, and discounted fees for each line item, along with total amounts.This endpoint is designed for bulk processing of multiple shipments at once.
+
+##### tlc-controller-create-transaction-bulk
+
+Takes in shipment details including origin address, destination address, currency code, and line items with their quantities, prices, and HS codes. Returns a comprehensive breakdown of taxes, duties, disbursement fees, and discounted fees for each line item, along with total amounts.
+
+- [Compute TLC for a cross-border shipment in bulk](/products/tlc/tlc-reference/tlc-controller-create-transaction-bulk.md): Takes in shipment details including origin address, destination address, currency code, and line items with their quantities, prices, and HS codes. Returns a comprehensive breakdown of taxes, duties, disbursement fees, and discounted fees for each line item, along with total amounts.
+
+##### tlc-controller-create-transaction
+
+Takes in shipment details including origin address, destination address, currency code, and line items with their quantities, prices, and HS codes. Returns a comprehensive breakdown of taxes, duties, disbursement fees, and discounted fees for each line item, along with total amounts.
+
+- [Compute TLC for a cross-border shipment](/products/tlc/tlc-reference/tlc-controller-create-transaction.md): Takes in shipment details including origin address, destination address, currency code, and line items with their quantities, prices, and HS codes. Returns a comprehensive breakdown of taxes, duties, disbursement fees, and discounted fees for each line item, along with total amounts.
+
+##### tlc-controller-process-validate
+
+Validates shipment details including origin address, destination address, currency code and hs codes.
+
+- [Validate TLC for a cross-border shipment](/products/tlc/tlc-reference/tlc-controller-process-validate.md): Validates shipment details including origin address, destination address, currency code and hs codes.
+
+##### tlc-controller-report-shipped
+
+Records one or more shipments made against a TLC transaction.
+
+- [Report a shipment against a TLC transaction](/products/tlc/tlc-reference/tlc-controller-report-shipped.md): Records one or more shipments made against a TLC transaction.
+
+##### tlc-controller-request-classification
+
+Sends a description (plus optional image URL and category and summary) and returns a new HS code
+
+- [Requests a HS code](/products/tlc/tlc-reference/tlc-controller-request-classification.md): Sends a description (plus optional image URL and category and summary) and returns a new HS code
+
+##### tlc-controller-void-transaction
+
+Records a voided TLC transaction.
+
+- [Report that a TLC transaction has been voided](/products/tlc/tlc-reference/tlc-controller-void-transaction.md): Records a voided TLC transaction.
+
+#### using-with-shipping
+
+How to combine a TLC calculation at pricing time with the Shipping API at execution time.
+
+- [Using TLC with the Shipping API](/products/tlc/using-with-shipping.md): How to combine a TLC calculation at pricing time with the Shipping API at execution time.
+
+## quickstart
+
+
+### authentication
+
+How to authenticate against every Swap API surface — REST, webhooks, and realtime.
+
+- [Authentication & Credentials](/quickstart/authentication.md): How to authenticate against every Swap API surface — REST, webhooks, and realtime.
+
+### environments
+
+Sandbox and production base URLs for every Swap API surface.
+
+- [Environments](/quickstart/environments.md): Sandbox and production base URLs for every Swap API surface.
+
+### make-first-request
+
+A worked first-call example against the Shipping API, plus pointers to the equivalent first call for every other Swap surface.
+
+- [Make Your First Request](/quickstart/make-first-request.md): A worked first-call example against the Shipping API, plus pointers to the equivalent first call for every other Swap surface.

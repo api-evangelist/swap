@@ -1,0 +1,25 @@
+generated: '2026-07-21'
+method: generated
+source: https://docs.api-swap-os.com/
+note: >-
+  Agent Skills generated from Swap's public documentation and operation surface
+  (llms.txt + API reference). Every referenced operation slug exists verbatim in
+  the Swap API reference; no operations were invented. No downloadable OpenAPI
+  spec is published, so operations are cited by their documented reference slug.
+skills:
+  - file: swap-global-checkout.md
+    name: Swap Global cross-border checkout
+    api: Swap Global API
+    operations: [checkout-controller-classify, shipping-public-controller-calculate-rates, checkout-controller-calculate, orders-controller-create]
+  - file: swap-tlc-landed-cost.md
+    name: Swap TLC guaranteed landed cost
+    api: Swap TLC API
+    operations: [tlc-controller-request-classification, tlc-controller-create-transaction, tlc-controller-create-bulk-transaction, tlc-controller-report-shipped, tlc-controller-void-transaction]
+  - file: swap-shipping-values.md
+    name: Swap Shipping customs-correct values and labels
+    api: Swap Shipping / Swap Values API
+    operations: [retrieve-invoices, create-a-shipping-label, cancel-a-shipping-label]
+  - file: swap-returns-processing.md
+    name: Swap Returns and quality control
+    api: Swap Returns API
+    operations: [get-external-returns-v-2, get-external-returns-v-1, update-quality-control]

@@ -1,0 +1,61 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.api-swap-os.com/products/returns/webhooks/
+spec_type: Webhooks
+note: >-
+  Swap documents webhooks but does not publish an AsyncAPI document. Webhook
+  endpoints are configured per-store in the Swap dashboard. Delivery is
+  at-least-once — handle duplicates idempotently.
+docs:
+  - https://docs.api-swap-os.com/products/returns/webhooks/
+  - https://docs.api-swap-os.com/products/shipping/values-webhook/
+  - https://docs.api-swap-os.com/products/shipping/label-updated-webhook/
+  - https://docs.api-swap-os.com/products/protect/protect-webhooks/
+channels:
+  - surface: Returns API
+    events:
+      - name: returnCreated
+        trigger: A customer has submitted a return request.
+      - name: returnProcessed
+        trigger: A return has been processed (refund issued, exchange created, etc.).
+    payload_versions:
+      - v1: Uses shipping_status and status; no shipment grouping.
+      - v2: >-
+          Uses delivery_status and return_status; adds return_shipments,
+          exchange_products, result_type, total_store_credit_value_customer_currency,
+          portal_quick_link. Recommended for new integrations.
+    security:
+      method: JWT (HS256)
+      location: top-level jwt field of the request body (not an HTTP header)
+      secret_format: whsk_<hex> (store webhook secret key)
+      expiry: 300 seconds from issue; unique nonce per delivery attempt
+      claims: [exp, iat, nonce, return_id, order_id, store_id, event]
+    conditional_triggers:
+      - Shipping status match
+      - Return type match
+      - Combined with AND/OR logical operator
+    retry: Up to 3 retries with increasing delays (1s, then longer)
+    source: https://docs.api-swap-os.com/products/returns/webhooks/
+  - surface: Shipping / Swap Values API
+    events:
+      - name: orderCreated
+        trigger: >-
+          Swap receives an order-creation event from the upstream order source
+          (e.g. a Shopify order webhook) and successfully computes the enriched
+          invoice values. Payload is identical to the synchronous
+          POST /invoices/:carrier response.
+      - name: labelUpdated
+        trigger: Tracking/label state updates for labels created via the Label API.
+    security:
+      method: HMAC-SHA256 (Base64) of the raw request body
+      header: x-swap-signature-sha256
+      secret: per-webhook signing secret, shown once at webhook creation; rotate by delete/re-create
+    guidance: Verify the signature on every event before processing; discard payloads that fail verification.
+    source: https://docs.api-swap-os.com/products/shipping/values-webhook/
+  - surface: Protect API
+    events:
+      - name: claim/order callbacks
+        trigger: Claim and protected-order lifecycle updates.
+    security:
+      method: JWT-signed payload
+    source: https://docs.api-swap-os.com/products/protect/protect-webhooks/

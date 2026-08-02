@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.swap-commerce.com/security-compliance
+url: https://www.swap-commerce.com/security-compliance
+certifications:
+  - ISO 27001:2022
+compliance_programs:
+  - name: ISO 27001:2022
+    status: certified
+    detail: >-
+      Certification issued by an accredited third-party auditor; maintained
+      through ongoing surveillance audits and annual reviews.
+  - name: SOC 2 Type 2
+    status: in-progress
+    detail: Working toward certification; follows Trust Services Criteria for security, availability, and confidentiality.
+  - name: GDPR
+    status: compliant
+  - name: CCPA
+    status: compliant
+controls:
+  penetration_testing: Annual third-party penetration testing and vulnerability assessments.
+  encryption_at_rest: Sensitive data encrypted with GCP KMS-managed keys.
+  encryption_in_transit: HTTPS / TLS 1.2+ enforced across all endpoints.
+  backups: Automated, encrypted backups with tested recovery procedures.
+  disaster_recovery: Documented DR and business-continuity plans with regular testing.
+  tenancy: Single-tenant and multi-tenant isolation models; both aligned to SOC 2 data-isolation requirements.
+  infrastructure: Google Cloud Platform (GCP) physical security controls.
+evidence:
+  - source: https://www.swap-commerce.com/security-compliance
+    keywords: [iso 27001:2022, soc 2 type 2, gdpr, ccpa, penetration testing, encryption]

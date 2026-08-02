@@ -1,0 +1,70 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.api-swap-os.com/products/global/errors-and-handling/
+docs:
+  - https://docs.api-swap-os.com/products/global/errors-and-handling/
+  - https://docs.api-swap-os.com/products/agentic-storefront/getting-started/error-codes-and-handling/
+format: http-status-plus-json
+guidance: >-
+  Treat HTTP status as the primary signal across all Swap surfaces. Per-operation
+  response tabs in the API reference are the source of truth for schemas and
+  examples. Handle by status code and log the body for support; do not encode
+  business rules against fixed message strings.
+envelopes:
+  - surface: Agentic Storefront API
+    shape: '{ statusCode: <int>, message: <string>, error: <reason-phrase> }'
+    note: >-
+      Compact NestJS-style body for most proxied REST errors. Gateway routing
+      failures return 502 with a minimal body (often only message).
+    example: '{ "statusCode": 404, "message": "Cart session not found", "error": "Not Found" }'
+    source: https://docs.api-swap-os.com/products/agentic-storefront/getting-started/error-codes-and-handling/
+  - surface: Global API
+    shape: 'HTTP status + optional validation errors map on 400'
+    source: https://docs.api-swap-os.com/products/global/errors-and-handling/
+problems:
+  - status: 400
+    title: Invalid request body or validation failure
+    detail: Write endpoints may include a validation payload with an errors map.
+    surface: all
+  - status: 401
+    title: Missing or invalid API key
+    detail: >-
+      Missing, wrong-environment, or revoked key. Confirm the key is scoped to
+      the correct surface and environment.
+    surface: all
+  - status: 403
+    title: Forbidden
+    detail: User/context not permitted for the requested resource.
+    surface: Agentic Storefront
+  - status: 409
+    code: exists
+    title: Duplicate order completion
+    detail: >-
+      Completion already tracked for that platform order; the API may return the
+      existing record with status "Exists" rather than replacing the linked
+      calculation.
+    surface: Global (POST /orders)
+  - status: 422
+    code: items_mismatch_calculation
+    title: Order items do not match linked calculation
+    detail: >-
+      The items list on POST /orders must match the linked POST /checkout/calculate
+      (same id and quantity per line). Re-send only after the order lines align
+      with the calculationId you link.
+    surface: Global (POST /orders)
+  - status: 429
+    title: Too Many Requests
+    detail: >-
+      Gateway limits exceeded (per IP and per identity). Slow down and add jitter
+      between retries.
+    surface: Agentic Storefront
+  - status: 500
+    title: Server error
+    surface: all
+  - status: 502
+    title: Bad Gateway
+    detail: Gateway could not complete a proxied request to a downstream service.
+    surface: Agentic Storefront
+  - status: 503
+    title: Feature disabled or dependency unavailable
+    surface: Global

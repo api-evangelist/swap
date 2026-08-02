@@ -1,8 +1,19 @@
 aid: swap
 name: Swap
-description: 'Swap is a company surfaced as a portfolio company of iconiq-capital, qed-investors, qiming
-  and added to the API Evangelist network as a stub for enrichment. Sector: ecommerce. This profile is
-  a lead awaiting the enrichment pipeline.'
+description: >-
+  Swap (Swap Commerce, Inc.) is an agentic commerce platform that helps merchants
+  sell, ship, and scale globally, powering 700+ brands across AI-led product
+  discovery, cross-border checkout, fulfillment, and returns on a shared per-store
+  data layer. Swap exposes six independent public API surfaces: the Agentic
+  Storefront API (conversational discovery, chat, virtual try-on, and checkout),
+  the Global API (cross-border classify, shipping rates, tax and duty calculation,
+  and order reporting), the Protect API (package-protection order enrollment and
+  claims), the Returns API (reverse logistics and quality control), the Shipping
+  API / Swap Values API (customs-correct declared values and commercial-invoice
+  enrichment for any carrier label stack), and the TLC API (guaranteed total
+  landed cost and HS-code classification). Every surface authenticates with a
+  per-API, per-environment API key plus a store identifier, and several ship
+  JWT- or HMAC-signed webhooks.
 url: https://raw.githubusercontent.com/api-evangelist/swap/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,18 +23,182 @@ x-backed-by:
 - qiming
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 2
+  pass: local-v1
+image: https://cdn.sanity.io/images/yqjhv3kv/production/8a30678bcf375982957978b1f5b4bd4c4eb1c3d1-1200x630.png
 tags:
 - Company
 - Ecommerce
-apis: []
+- Cross-Border
+- Customs
+- Shipping
+- Returns
+- Tax
+- Duties
+- Agentic Commerce
+- Checkout
+- Package Protection
+- Landed Cost
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- name: Swap Agentic Storefront API
+  description: >-
+    Public Gateway API for the Agentic Storefront product: conversational
+    discovery and chat, catalog/collection browsing, cart and checkout sessions,
+    virtual try-on, orders and shipments, user profile and tracking consent, and
+    a realtime assistant session (Wire Worker over WebSocket).
+  humanURL: https://docs.api-swap-os.com/products/agentic-storefront/
+  baseURL: https://prod-ws-gateway.api-swap-os.com
+  properties:
+  - type: Documentation
+    url: https://docs.api-swap-os.com/products/agentic-storefront/
+  - type: APIReference
+    url: https://docs.api-swap-os.com/products/agentic-storefront/agentic-storefront-reference/
+- name: Swap Global API
+  description: >-
+    Public API for Swap Global: the cross-border checkout flow of classify (HS
+    codes) then optional shipping rates, calculate (taxes and duties), and order
+    completion reporting.
+  humanURL: https://docs.api-swap-os.com/products/global/
+  baseURL: https://prod-global-server.api-swap-os.com
+  properties:
+  - type: Documentation
+    url: https://docs.api-swap-os.com/products/global/
+  - type: APIReference
+    url: https://docs.api-swap-os.com/products/global/global-reference/
+- name: Swap Protect API
+  description: >-
+    Public API for the Swap Protect product: enroll protected orders and manage
+    claim activity (create/update orders, retrieve claims, send claim messages,
+    fetch delivery declarations).
+  humanURL: https://docs.api-swap-os.com/products/protect/
+  baseURL: https://prod-protect-integrations.api-swap-os.com/protect-integrations/api/v1
+  properties:
+  - type: Documentation
+    url: https://docs.api-swap-os.com/products/protect/
+  - type: APIReference
+    url: https://docs.api-swap-os.com/products/protect/protect-reference/swap-protect-api/
+- name: Swap Returns API
+  description: >-
+    Public API for Swap Returns reverse logistics: list external returns (V1 and
+    V2) and update quality-control status, with per-store JWT-signed webhooks for
+    return lifecycle events.
+  humanURL: https://docs.api-swap-os.com/products/returns/
+  baseURL: https://api-gateway.swap-os.com/returns-api
+  properties:
+  - type: Documentation
+    url: https://docs.api-swap-os.com/products/returns/
+  - type: APIReference
+    url: https://docs.api-swap-os.com/products/returns/returns-reference/get-external-returns-v-2/
+- name: Swap Shipping API
+  description: >-
+    Public Shipping / Swap Values API: enrich a Shipment Intent into a
+    customs-correct Compliance Pack (declared values, HS codes, commercial-invoice
+    fields), create and cancel carrier shipping labels, and retrieve invoices,
+    with HMAC-signed orderCreated and labelUpdated webhooks.
+  humanURL: https://docs.api-swap-os.com/products/shipping/
+  baseURL: https://api-gateway.swap-os.com/shipping/v1/public
+  properties:
+  - type: Documentation
+    url: https://docs.api-swap-os.com/products/shipping/
+  - type: APIReference
+    url: https://docs.api-swap-os.com/products/shipping/shipping-reference/
+- name: Swap TLC API
+  description: >-
+    Public Total Landed Cost API: compute guaranteed landed cost (duties, taxes,
+    import fees) for single or bulk cross-border shipments, request HS-code
+    classification, and report shipped or voided transactions.
+  humanURL: https://docs.api-swap-os.com/products/tlc/
+  baseURL: https://prod-tlc.api-swap-os.com/tax-duty/v1
+  properties:
+  - type: Documentation
+    url: https://docs.api-swap-os.com/products/tlc/
+  - type: APIReference
+    url: https://docs.api-swap-os.com/products/tlc/tlc-reference/
+  - type: ChangeLog
+    url: https://docs.api-swap-os.com/products/tlc/release-notes/
 common:
+- type: DomainSecurity
+  url: security/swap-domain-security.yml
 - type: Website
   url: https://www.swap-commerce.com/
+- type: DeveloperPortal
+  url: https://docs.api-swap-os.com/
+- type: Documentation
+  url: https://docs.api-swap-os.com/
+- type: APIReference
+  url: https://docs.api-swap-os.com/products/choosing-an-api/
+- type: GettingStarted
+  url: https://docs.api-swap-os.com/quickstart/make-first-request/
+- type: Quickstart
+  url: https://docs.api-swap-os.com/quickstart/authentication/
+- type: HelpCenter
+  url: https://help.swap-commerce.com/
+- type: Support
+  url: mailto:contact@swap-commerce.com
+- type: Blog
+  url: https://www.swap-commerce.com/blog
+- type: GitHubOrganization
+  url: https://github.com/swap-commerce
+- type: SignUp
+  url: https://www.swap-commerce.com/book-a-demo
+- type: Login
+  url: https://swap-os.com/
+- type: PrivacyPolicy
+  url: https://www.swap-commerce.com/privacy-policy
+- type: TermsOfService
+  url: https://www.swap-commerce.com/terms-conditions
+- type: Compliance
+  url: https://www.swap-commerce.com/security-compliance
+- type: TrustCenter
+  url: https://www.swap-commerce.com/security-compliance
+- type: Integrations
+  url: https://help.swap-commerce.com/en/collections/16620862-integrations
+- type: LLMsTxt
+  url: llms/swap-llms.txt
+- type: Authentication
+  url: authentication/swap-authentication.yml
+- type: Conventions
+  url: conventions/swap-conventions.yml
+- type: Idempotency
+  url: conventions/swap-conventions.yml
+- type: ErrorCatalog
+  url: errors/swap-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/swap-lifecycle.yml
+- type: ChangeLog
+  url: changelog/swap-changelog.yml
+- type: Webhooks
+  url: asyncapi/swap-webhooks.yml
+- type: Conformance
+  url: conformance/swap-conformance.yml
+- type: Sandbox
+  url: sandbox/swap-sandbox.yml
+- type: DataModel
+  url: data-model/swap-data-model.yml
+- type: MCPServer
+  url: mcp/swap-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml

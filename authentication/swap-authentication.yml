@@ -1,0 +1,81 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.api-swap-os.com/quickstart/authentication/
+docs: https://docs.api-swap-os.com/quickstart/authentication/
+summary:
+  types: [apiKey, http]
+  api_key_in: [header, query, body]
+  oauth2_flows: []
+  model: >-
+    API keys are issued per-API (surface) and per-environment (a Global key
+    cannot call Returns; a sandbox key cannot call production). Every request is
+    also scoped to a store via a store identifier whose parameter name differs by
+    surface. Shopper-facing Agentic Storefront flows add a bearer ID token.
+notes:
+  - Header names are case-insensitive; surfaces vary between x-api-key and X-API-Key.
+  - No OAuth2 or OpenID Connect; this is a key-auth platform, so there is no scope surface.
+schemes:
+  - name: agentic-storefront-public-key
+    surface: Agentic Storefront API
+    type: apiKey
+    in: header
+    parameter: x-public-key
+    additional: 'Authorization: Bearer <ID token> and x-store-id for shopper-facing flows'
+    source: https://docs.api-swap-os.com/quickstart/authentication/
+  - name: agentic-storefront-wire-session
+    surface: Agentic Storefront API (Wire Worker realtime)
+    type: http
+    scheme: bearer
+    parameter: 'session id + token from POST /v1/agents/session/authorize'
+    transport: websocket
+    source: https://docs.api-swap-os.com/products/agentic-storefront/getting-started/authentication/
+  - name: global-api-key
+    surface: Global API
+    type: apiKey
+    in: header
+    parameter: x-api-key
+    store_scope: key is store-scoped
+    source: https://docs.api-swap-os.com/products/global/authentication/
+  - name: protect-api-key
+    surface: Protect API
+    type: apiKey
+    in: header
+    parameter: x-api-key
+    source: https://docs.api-swap-os.com/products/protect/
+  - name: returns-api-key-v1
+    surface: Returns API (V1) + Quality Control
+    type: apiKey
+    in: header
+    parameter: X-API-Key
+    store_parameter: 'store (query, V1) / store_id (Quality Control, body)'
+    source: https://docs.api-swap-os.com/products/returns/
+  - name: returns-api-key-v2
+    surface: Returns API (V2)
+    type: apiKey
+    in: header
+    parameter: X-API-Key
+    store_parameter: 'swap_store_id (query)'
+    source: https://docs.api-swap-os.com/products/returns/external-returns/
+  - name: shipping-api-key
+    surface: Shipping / Swap Values API
+    type: apiKey
+    in: header
+    parameter: x-api-key
+    store_parameter: 'storeId (request body)'
+    source: https://docs.api-swap-os.com/products/shipping/environments-and-auth/
+  - name: tlc-api-key
+    surface: TLC API
+    type: apiKey
+    in: header
+    parameter: x-api-key
+    source: https://docs.api-swap-os.com/products/tlc/environments-and-auth/
+webhook_verification:
+  - surface: Returns webhooks
+    method: JWT (HS256) in top-level jwt body field; secret whsk_<hex>; 5-minute expiry
+    source: https://docs.api-swap-os.com/products/returns/webhooks/
+  - surface: Shipping webhooks (orderCreated, labelUpdated)
+    method: HMAC-SHA256 Base64 signature in x-swap-signature-sha256 header; per-webhook signing secret
+    source: https://docs.api-swap-os.com/products/shipping/values-webhook/
+  - surface: Protect webhooks
+    method: JWT-signed payload
+    source: https://docs.api-swap-os.com/products/protect/protect-webhooks/

@@ -1,0 +1,81 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.api-swap-os.com/overview/core-concepts/
+docs:
+  - https://docs.api-swap-os.com/overview/core-concepts/
+  - https://docs.api-swap-os.com/overview/architecture/
+  - https://docs.api-swap-os.com/quickstart/authentication/
+authentication:
+  style: api-key
+  detail: >-
+    Per-API, per-environment API key in an x-api-key / X-API-Key header plus a
+    per-request store identifier. See authentication/swap-authentication.yml.
+  ref: authentication/swap-authentication.yml
+store_scoping:
+  supported: true
+  detail: >-
+    Every request is scoped to a single store (brand/merchant). Parameter name
+    varies by surface: x-store-id (header, Agentic Storefront), store /
+    swap_store_id (query, Returns), store_id / storeId (body, Quality
+    Control / Shipping).
+idempotency:
+  supported: true
+  style: client-supplied-key-and-natural-key
+  detail: >-
+    Many Swap write endpoints accept a client-supplied idempotency key. On the
+    Global API, order completion is idempotent on the platform order identity:
+    a duplicate POST /orders returns HTTP 409 and may return the existing record
+    with status "Exists" rather than replacing the linked calculation. Webhook
+    delivery is at-least-once, so consumers must make handlers idempotent on the
+    event id / nonce.
+  exceptions:
+    - surface: TLC API
+      detail: >-
+        No idempotency-key header. State-changing endpoints POST /shipped and
+        PATCH /void are not guaranteed to deduplicate on repeated calls for the
+        same calculation.
+      source: https://docs.api-swap-os.com/products/tlc/environments-and-auth/
+  source: https://docs.api-swap-os.com/overview/core-concepts/
+pagination:
+  supported: true
+  detail: >-
+    Agentic Storefront list endpoints (list orders, list data-management jobs,
+    list conversations) are paginated. Exact parameters are defined per operation
+    in the API reference.
+  source: https://docs.api-swap-os.com/products/agentic-storefront/agentic-storefront-reference/
+versioning:
+  scheme: uri-path
+  detail: >-
+    Operations are versioned in the path (v1 across surfaces; TLC uses
+    /tax-duty/v1). See lifecycle/swap-lifecycle.yml.
+  ref: lifecycle/swap-lifecycle.yml
+error_envelope:
+  detail: >-
+    Treat HTTP status as the primary signal. Agentic Storefront proxied REST
+    errors return a compact JSON object with statusCode, message, and error
+    fields (NestJS-style); Gateway routing failures return 502 with a minimal
+    body. Global validation errors (400) may include an errors map with codes
+    such as items_mismatch_calculation. See errors/swap-problem-types.yml.
+  ref: errors/swap-problem-types.yml
+rate_limiting:
+  supported: true
+  signal: HTTP 429 Too Many Requests
+  detail: >-
+    Agentic Storefront Gateway limits are applied per IP and per identity in a
+    sliding window; documented defaults are on the order of ~120 req/min per IP
+    and ~300 req/min per identity (confirm for production). Slow down, add jitter
+    between retries, avoid tight polling loops.
+  source: https://docs.api-swap-os.com/products/agentic-storefront/getting-started/environments-and-base-urls/
+webhooks:
+  supported: true
+  delivery: at-least-once
+  verification: JWT (HS256) or HMAC-SHA256 depending on surface
+  detail: >-
+    Returns, Shipping, and Protect surfaces push signed webhooks. Handle
+    duplicates idempotently. See asyncapi/swap-webhooks.yml.
+  ref: asyncapi/swap-webhooks.yml
+source_of_truth:
+  detail: >-
+    For declared values and customs data on cross-border orders, Swap is the
+    source of truth even when the storefront/Shopify emits competing events.
+  source: https://docs.api-swap-os.com/overview/core-concepts/
