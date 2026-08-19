@@ -2,79 +2,77 @@ generated: '2026-07-21'
 method: derived
 status: candidate
 source: https://docs.api-swap-os.com/
-note: >-
-  No official hosted/remote Swap MCP server was found. This is a candidate tool
-  list derived from Swap's documented public operations (llms.txt + API
-  reference). source_operation points at the documentation page for each op since
-  no downloadable OpenAPI spec is published.
+note: No official hosted/remote Swap MCP server was found. This is a candidate tool list derived from
+  Swap's documented public operations (llms.txt + API reference). source_operation points at the documentation
+  page for each op since no downloadable OpenAPI spec is published.
 server:
   name: swap
   transport: http
   url: null
 tools:
-  # Global API — cross-border checkout
-  - name: global_classify
-    description: Classify checkout products into HS codes for customs and compliance.
-    source_operation: https://docs.api-swap-os.com/products/global/global-reference/checkout-controller-classify/
-  - name: global_calculate
-    description: Calculate taxes and duties for a checkout.
-    source_operation: https://docs.api-swap-os.com/products/global/global-reference/checkout-controller-calculate/
-  - name: global_calculate_rates
-    description: Return shipping rates for the current cart.
-    source_operation: https://docs.api-swap-os.com/products/global/global-reference/shipping-public-controller-calculate-rates/
-  - name: global_create_order
-    description: Notify Swap that an order has been placed (links to a prior calculation).
-    source_operation: https://docs.api-swap-os.com/products/global/global-reference/orders-controller-create/
-  # TLC API — total landed cost
-  - name: tlc_create_transaction
-    description: Compute guaranteed total landed cost for a cross-border shipment.
-    source_operation: https://docs.api-swap-os.com/products/tlc/tlc-reference/tlc-controller-create-transaction/
-  - name: tlc_create_bulk_transaction
-    description: Compute total landed cost for multiple cross-border shipments in bulk.
-    source_operation: https://docs.api-swap-os.com/products/tlc/tlc-reference/tlc-controller-create-bulk-transaction/
-  - name: tlc_request_classification
-    description: Request an HS code from a description (plus optional image URL and category).
-    source_operation: https://docs.api-swap-os.com/products/tlc/tlc-reference/tlc-controller-request-classification/
-  - name: tlc_report_shipped
-    description: Record one or more shipments made against a TLC transaction.
-    source_operation: https://docs.api-swap-os.com/products/tlc/tlc-reference/tlc-controller-report-shipped/
-  - name: tlc_void_transaction
-    description: Record that a TLC transaction has been voided.
-    source_operation: https://docs.api-swap-os.com/products/tlc/tlc-reference/tlc-controller-void-transaction/
-  # Shipping / Swap Values API
-  - name: shipping_retrieve_invoices
-    description: Retrieve enriched invoices (Compliance Pack) for an order.
-    source_operation: https://docs.api-swap-os.com/products/shipping/shipping-reference/retrieve-invoices/
-  - name: shipping_create_label
-    description: Create a shipping label for an order.
-    source_operation: https://docs.api-swap-os.com/products/shipping/shipping-reference/create-a-shipping-label/
-  - name: shipping_cancel_label
-    description: Cancel a shipping label.
-    source_operation: https://docs.api-swap-os.com/products/shipping/shipping-reference/cancel-a-shipping-label/
-  # Protect API
-  - name: protect_create_order
-    description: Validate and enqueue a new protected order for processing.
-    source_operation: https://docs.api-swap-os.com/products/protect/protect-reference/create-order/
-  - name: protect_get_claim
-    description: Retrieve a claim scoped to the provider inferred from the API key.
-    source_operation: https://docs.api-swap-os.com/products/protect/protect-reference/get-claim-by-id/
-  - name: protect_send_claim_message
-    description: Validate and enqueue a claim message for downstream processing.
-    source_operation: https://docs.api-swap-os.com/products/protect/protect-reference/send-claim-message/
-  # Returns API
-  - name: returns_list_v2
-    description: List external returns (V2) for a store.
-    source_operation: https://docs.api-swap-os.com/products/returns/returns-reference/get-external-returns-v-2/
-  - name: returns_update_quality_control
-    description: Update quality-control status for a return.
-    source_operation: https://docs.api-swap-os.com/products/returns/returns-reference/update-quality-control/
-  # Agentic Storefront API
-  - name: storefront_get_cart
-    description: Get the active cart for a user and store.
-    source_operation: https://docs.api-swap-os.com/products/agentic-storefront/agentic-storefront-reference/carts-controller-get-cart-v-1/
-  - name: storefront_create_checkout_session
-    description: Initiate a checkout session for a store and user.
-    source_operation: https://docs.api-swap-os.com/products/agentic-storefront/agentic-storefront-reference/checkouts-controller-create-checkout-session-v-1/
-  - name: storefront_list_orders
-    description: List orders for a user in a specific store (paginated).
-    source_operation: https://docs.api-swap-os.com/products/agentic-storefront/agentic-storefront-reference/orders-controller-list-orders-v-1/
+- name: global_classify
+  description: Classify checkout products into HS codes for customs and compliance.
+  source_operation: https://docs.api-swap-os.com/products/global/global-reference/checkout-controller-classify/
+- name: global_calculate
+  description: Calculate taxes and duties for a checkout.
+  source_operation: https://docs.api-swap-os.com/products/global/global-reference/checkout-controller-calculate/
+- name: global_calculate_rates
+  description: Return shipping rates for the current cart.
+  source_operation: https://docs.api-swap-os.com/products/global/global-reference/shipping-public-controller-calculate-rates/
+- name: global_create_order
+  description: Notify Swap that an order has been placed (links to a prior calculation).
+  source_operation: https://docs.api-swap-os.com/products/global/global-reference/orders-controller-create/
+- name: tlc_create_transaction
+  description: Compute guaranteed total landed cost for a cross-border shipment.
+  source_operation: https://docs.api-swap-os.com/products/tlc/tlc-reference/tlc-controller-create-transaction/
+- name: tlc_create_bulk_transaction
+  description: Compute total landed cost for multiple cross-border shipments in bulk.
+  source_operation: https://docs.api-swap-os.com/products/tlc/tlc-reference/tlc-controller-create-bulk-transaction/
+- name: tlc_request_classification
+  description: Request an HS code from a description (plus optional image URL and category).
+  source_operation: https://docs.api-swap-os.com/products/tlc/tlc-reference/tlc-controller-request-classification/
+- name: tlc_report_shipped
+  description: Record one or more shipments made against a TLC transaction.
+  source_operation: https://docs.api-swap-os.com/products/tlc/tlc-reference/tlc-controller-report-shipped/
+- name: tlc_void_transaction
+  description: Record that a TLC transaction has been voided.
+  source_operation: https://docs.api-swap-os.com/products/tlc/tlc-reference/tlc-controller-void-transaction/
+- name: shipping_retrieve_invoices
+  description: Retrieve enriched invoices (Compliance Pack) for an order.
+  source_operation: https://docs.api-swap-os.com/products/shipping/shipping-reference/retrieve-invoices/
+- name: shipping_create_label
+  description: Create a shipping label for an order.
+  source_operation: https://docs.api-swap-os.com/products/shipping/shipping-reference/create-a-shipping-label/
+- name: shipping_cancel_label
+  description: Cancel a shipping label.
+  source_operation: https://docs.api-swap-os.com/products/shipping/shipping-reference/cancel-a-shipping-label/
+- name: protect_create_order
+  description: Validate and enqueue a new protected order for processing.
+  source_operation: https://docs.api-swap-os.com/products/protect/protect-reference/create-order/
+- name: protect_get_claim
+  description: Retrieve a claim scoped to the provider inferred from the API key.
+  source_operation: https://docs.api-swap-os.com/products/protect/protect-reference/get-claim-by-id/
+- name: protect_send_claim_message
+  description: Validate and enqueue a claim message for downstream processing.
+  source_operation: https://docs.api-swap-os.com/products/protect/protect-reference/send-claim-message/
+- name: returns_list_v2
+  description: List external returns (V2) for a store.
+  source_operation: https://docs.api-swap-os.com/products/returns/returns-reference/get-external-returns-v-2/
+- name: returns_update_quality_control
+  description: Update quality-control status for a return.
+  source_operation: https://docs.api-swap-os.com/products/returns/returns-reference/update-quality-control/
+- name: storefront_get_cart
+  description: Get the active cart for a user and store.
+  source_operation: https://docs.api-swap-os.com/products/agentic-storefront/agentic-storefront-reference/carts-controller-get-cart-v-1/
+- name: storefront_create_checkout_session
+  description: Initiate a checkout session for a store and user.
+  source_operation: https://docs.api-swap-os.com/products/agentic-storefront/agentic-storefront-reference/checkouts-controller-create-checkout-session-v-1/
+- name: storefront_list_orders
+  description: List orders for a user in a specific store (paginated).
+  source_operation: https://docs.api-swap-os.com/products/agentic-storefront/agentic-storefront-reference/orders-controller-list-orders-v-1/
+deployment:
+  mode: none
+  verified: derived
+  tools: 20
+  checked: '2026-08-12'
+  source: catalog MCP census
