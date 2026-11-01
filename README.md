@@ -64,6 +64,114 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Swap is a company surfaced as a portfolio company of iconiq-capital, qed-investors, qiming and added to the API Evangelist network as a stub for enrichment. Sector: ecommerce. This profile is a lead awaiting the enrichment pipeline.
+Swap (Swap Commerce, Inc.) is an agentic commerce platform that helps merchants sell, ship, and scale globally, powering 700+ brands across AI-led product discovery, cross-border checkout, fulfillment, and returns on a shared per-store data layer. Swap exposes six independent public API surfaces: the Agentic Storefront API (conversational discovery, chat, virtual try-on, and checkout), the Global API (cross-border classify, shipping rates, tax and duty calculation, and order reporting), the Protect API (package-protection order enrollment and claims), the Returns API (reverse logistics and quality control), the Shipping API / Swap Values API (customs-correct declared values and commercial-invoice enrichment for any carrier label stack), and the TLC API (guaranteed total landed cost and HS-code classification). Every surface authenticates with a per-API, per-environment API key plus a store identifier, and several ship JWT- or HMAC-signed webhooks.
 
-Backed by: iconiq-capital, qed-investors, qiming — https://www.swap-commerce.com/
+**Areas:** Company · E-Commerce · Cross-Border · Customs · Shipping · Returns · Tax · Duties · Agentic Commerce · Checkout · Package Protection · Landed Cost
+
+## Swap on APIs.io
+
+Everything profiled for Swap is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/swap/](https://apis.io/providers/swap/)** — or go straight to one of the APIs or properties below.
+
+### APIs (6)
+
+- [Swap Agentic Storefront API](https://apis.io/apis/swap/swap-agentic-storefront-api/) — Public Gateway API for the Agentic Storefront product: conversational discovery and chat, catalog/collection browsing, cart and checkout sessions, virtual…
+- [Swap Global API](https://apis.io/apis/swap/swap-global-api/) — Public API for Swap Global: the cross-border checkout flow of classify (HS codes) then optional shipping rates, calculate (taxes and duties), and order…
+- [Swap Protect API](https://apis.io/apis/swap/swap-protect-api/) — Public API for the Swap Protect product: enroll protected orders and manage claim activity (create/update orders, retrieve claims, send claim messages,…
+- [Swap Returns API](https://apis.io/apis/swap/swap-returns-api/) — Public API for Swap Returns reverse logistics: list external returns (V1 and V2) and update quality-control status, with per-store JWT-signed webhooks for…
+- [Swap Shipping API](https://apis.io/apis/swap/swap-shipping-api/) — Public Shipping / Swap Values API: enrich a Shipment Intent into a customs-correct Compliance Pack (declared values, HS codes, commercial-invoice fields),…
+- [Swap TLC API](https://apis.io/apis/swap/swap-tlc-api/) — Public Total Landed Cost API: compute guaranteed landed cost (duties, taxes, import fees) for single or bulk cross-border shipments, request HS-code…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Swap Webhooks](https://apis.io/asyncapis/swap/swap-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [swap](https://apis.io/servers/swap/swap/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Swap Authentication](https://apis.io/security/swap/swap-authentication/)
+- [Swap Domain Security](https://apis.io/security/swap/swap-domain-security/)
+- [Swap Trust Center](https://apis.io/security/swap/swap-trust-center/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.swap-commerce.com/)
+- [Documentation](https://docs.api-swap-os.com/)
+- [Getting started](https://docs.api-swap-os.com/quickstart/make-first-request/)
+- [API reference](https://docs.api-swap-os.com/products/choosing-an-api/)
+- [Sign up](https://www.swap-commerce.com/book-a-demo)
+- [Blog](https://www.swap-commerce.com/blog)
+- [Compliance](https://www.swap-commerce.com/security-compliance)
+- [Trust centre](https://www.swap-commerce.com/security-compliance)
+- [Terms of service](https://www.swap-commerce.com/terms-conditions)
+- [Privacy policy](https://www.swap-commerce.com/privacy-policy)
+- [GitHub](https://github.com/swap-commerce)
+
+## API Evangelist rating
+
+**Kin Score 47.5** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 78.6 |
+| Contract quality | 39.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 66.1 |
+| Access clarity | 50.0 |
+
+**Agent readiness 26.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | documented (partial credit) |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 26.8** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/swap/](https://apis.io/providers/swap/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Swap: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/swap/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
